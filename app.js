@@ -51,6 +51,20 @@ This keeps track of the scores between cpu and playerOne
 let cpuTotal = 0
 let playerOneTotal = 0
 
+document.querySelector('#sumbitBtn').addEventListener('click', howManyGames)
+let getNumGames = document.querySelector('#number')
+
+function howManyGames(){
+    // e.preventDefault()
+    console.log(getNumGames.value)
+    // let convertStr = parseInt(getNumGames.value)
+    // return convertStr
+    return parseInt(getNumGames.value)
+    
+}
+
+let countGames = howManyGames
+
 let cpuTotalTrack = document.querySelector('#getCPUPoints')
 let playerOneTotalTrack = document.querySelector('#getP1Points')
 
@@ -60,9 +74,22 @@ resetBtn.addEventListener('click', () => {
     playerOneTotalTrack.innerText = 0
 })
 
-// function getWin(){
-
-// }
+function getWin(e){
+    // e.preventDefault()
+    if(cpuTotal === countGames()){
+        alert('CPU WINS THE GAME')
+        cpuTotal = 0
+        playerOneTotal = 0
+        cpuTotalTrack.innerText = 0
+        playerOneTotalTrack.innerText = 0
+    } else if( playerOneTotal === countGames()){
+        alert('PLAYER ONE WINS THE GAME')
+        cpuTotal = 0
+        playerOneTotal = 0
+        cpuTotalTrack.innerText = 0
+        playerOneTotalTrack.innerText = 0
+    }
+}
 
 function rockBtn() {
     //    let rock = 'rock'
@@ -81,6 +108,7 @@ function rockBtn() {
         playerOneTotal++
         playerOneTotalTrack.innerText = playerOneTotal
     }
+    getWin()
 
 }
 function paperBtn() {
@@ -100,6 +128,7 @@ function paperBtn() {
         cpuTotal++
         cpuTotalTrack.innerText = cpuTotal
     }
+    getWin()
 }
 function scissorsBtn() {
 
@@ -118,6 +147,7 @@ function scissorsBtn() {
         playerOneTotalTrack.innerText = playerOneTotal
 
     }
+    getWin()
 }
 
 
