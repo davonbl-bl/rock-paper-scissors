@@ -1,12 +1,14 @@
-
+// Xbox One X
+//codeAcademy
+//hogwarts legacy
 function playingCPU() {
     let result = Math.floor(Math.random() * 99)
 
-    if(result <= 33){
+    if (result <= 33) {
         return 'rock'
-    } else if (result <= 66){
+    } else if (result <= 66) {
         return 'paper'
-    } else if (result <= 99){
+    } else if (result <= 99) {
         return 'scissors'
     }
 
@@ -26,9 +28,14 @@ then do the if else statements
 
 */
 
+/*   
+This gives the result of either the cpu or playOne
+*/
 let getResult = document.querySelector('#getResult')
 
-
+/*
+Here are the functions selecting the buttons from html file
+*/
 const pickRock = document.querySelector('#rock')
 pickRock.addEventListener('click', rockBtn)
 
@@ -36,44 +43,79 @@ const pickPaper = document.querySelector('#paper')
 pickPaper.addEventListener('click', paperBtn)
 
 const pickScissors = document.querySelector('#scissors')
-pickScissors.addEventListener('click', scissorsBtn )
+pickScissors.addEventListener('click', scissorsBtn)
 
-function rockBtn(){
-//    let rock = 'rock'
-   if(cpuPlayer() === 'rock'){
-    getResult.innerText = "It's a tie"
-    console.log(getResult.innerText)
-   }else if(cpuPlayer() === 'paper'){
-    getResult.innerText = "CPU wins"
-    console.log(getResult.innerText)
-   }else if(cpuPlayer() === 'scissors'){
-    getResult.innerText = "Player One wins"
-    console.log(getResult.innerText)
-   }
+/*
+This keeps track of the scores between cpu and playerOne
+*/
+let cpuTotal = 0
+let playerOneTotal = 0
 
-}
-function paperBtn(){
-    if(cpuPlayer() === 'rock'){
-        getResult.innerText = "Play One wins"
-        console.log(getResult.innerText)
-    } else if (cpuPlayer() === 'paper'){
+let cpuTotalTrack = document.querySelector('#getCPUPoints')
+let playerOneTotalTrack = document.querySelector('#getP1Points')
+
+// const resetBtn = document.querySelector('#resetBtn')
+resetBtn.addEventListener('click', () => {
+    cpuTotalTrack.innerText = 0
+    playerOneTotalTrack.innerText = 0
+})
+
+// function getWin(){
+
+// }
+
+function rockBtn() {
+    //    let rock = 'rock'
+    if (cpuPlayer() === 'rock') {
         getResult.innerText = "It's a tie"
         console.log(getResult.innerText)
-    } else if(cpuPlayer() === 'scissors'){
+    } else if (cpuPlayer() === 'paper') {
+        cpuTotal++
         getResult.innerText = "CPU wins"
         console.log(getResult.innerText)
-    }
-}
-function scissorsBtn(){
-    console.log(playingCPU() === 'rock')
-    if(cpuPlayer() === 'rock'){
-        getResult.innerText = "CPU wins"
-        console.log(getResult.innerText)
-    } else if (cpuPlayer() === 'scissors'){
-        getResult.innerText = "It's a tie"
-    } else if (cpuPlayer() === 'paper'){
+        cpuTotalTrack.innerText = cpuTotal
+    
+   } else if (cpuPlayer() === 'scissors') {
         getResult.innerText = "Player One wins"
         console.log(getResult.innerText)
+        playerOneTotal++
+        playerOneTotalTrack.innerText = playerOneTotal
+    }
+
+}
+function paperBtn() {
+
+    if (cpuPlayer() === 'rock') {
+        getResult.innerText = "Play One wins"
+        console.log(getResult.innerText)
+        playerOneTotal++
+        playerOneTotalTrack.innerText = playerOneTotal
+
+    } else if (cpuPlayer() === 'paper') {
+        getResult.innerText = "It's a tie"
+        console.log(getResult.innerText)
+    } else if (cpuPlayer() === 'scissors') {
+        getResult.innerText = "CPU wins"
+        console.log(getResult.innerText)
+        cpuTotal++
+        cpuTotalTrack.innerText = cpuTotal
+    }
+}
+function scissorsBtn() {
+
+
+    if (cpuPlayer() === 'rock') {
+        getResult.innerText = "CPU wins"
+        console.log(getResult.innerText)
+        cpuTotal++
+        cpuTotalTrack.innerText = cpuTotal
+    } else if (cpuPlayer() === 'scissors') {
+        getResult.innerText = "It's a tie"
+    } else if (cpuPlayer() === 'paper') {
+        getResult.innerText = "Player One wins"
+        console.log(getResult.innerText)
+        playerOneTotal++
+        playerOneTotalTrack.innerText = playerOneTotal
 
     }
 }
