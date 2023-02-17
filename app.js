@@ -14,7 +14,7 @@ function playingCPU() {
 
 }
 
-let cpuPlayer = playingCPU
+let cpuPlayer = playingCPU()
 
 /*
 Create 3 functions in reference to the 3 buttons you
@@ -93,16 +93,16 @@ function getWin(e){
 
 function rockBtn() {
     //    let rock = 'rock'
-    if (cpuPlayer() === 'rock') {
+    if (cpuPlayer === 'rock') {
         getResult.innerText = "It's a tie"
         console.log(getResult.innerText)
-    } else if (cpuPlayer() === 'paper') {
+    } else if (cpuPlayer === 'paper') {
         cpuTotal++
         getResult.innerText = "CPU wins"
         console.log(getResult.innerText)
         cpuTotalTrack.innerText = cpuTotal
     
-   } else if (cpuPlayer() === 'scissors') {
+   } else if (cpuPlayer === 'scissors') {
         getResult.innerText = "Player One wins"
         console.log(getResult.innerText)
         playerOneTotal++
@@ -113,16 +113,16 @@ function rockBtn() {
 }
 function paperBtn() {
 
-    if (cpuPlayer() === 'rock') {
+    if (cpuPlayer === 'rock') {
         getResult.innerText = "Play One wins"
         console.log(getResult.innerText)
         playerOneTotal++
         playerOneTotalTrack.innerText = playerOneTotal
 
-    } else if (cpuPlayer() === 'paper') {
+    } else if (cpuPlayer === 'paper') {
         getResult.innerText = "It's a tie"
         console.log(getResult.innerText)
-    } else if (cpuPlayer() === 'scissors') {
+    } else if (cpuPlayer === 'scissors') {
         getResult.innerText = "CPU wins"
         console.log(getResult.innerText)
         cpuTotal++
@@ -133,14 +133,14 @@ function paperBtn() {
 function scissorsBtn() {
 
 
-    if (cpuPlayer() === 'rock') {
+    if (cpuPlayer === 'rock') {
         getResult.innerText = "CPU wins"
         console.log(getResult.innerText)
         cpuTotal++
         cpuTotalTrack.innerText = cpuTotal
-    } else if (cpuPlayer() === 'scissors') {
+    } else if (cpuPlayer === 'scissors') {
         getResult.innerText = "It's a tie"
-    } else if (cpuPlayer() === 'paper') {
+    } else if (cpuPlayer === 'paper') {
         getResult.innerText = "Player One wins"
         console.log(getResult.innerText)
         playerOneTotal++
