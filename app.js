@@ -82,12 +82,14 @@ function getWin(e){
         playerOneTotal = 0
         cpuTotalTrack.innerText = 0
         playerOneTotalTrack.innerText = 0
+        getResult.innerText =''
     } else if( playerOneTotal === countGames()){
         alert('PLAYER ONE WINS THE GAME')
         cpuTotal = 0
         playerOneTotal = 0
         cpuTotalTrack.innerText = 0
         playerOneTotalTrack.innerText = 0
+        getResult.innerText =''
     }
 }
 
